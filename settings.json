@@ -1,0 +1,77 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(py:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(mkdir:*)",
+      "Bash(wc:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(bun:*)",
+      "Bash(node:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(cd:*)",
+      "Bash(pwd:*)",
+      "Bash(diff:*)",
+      "Bash(chmod:*)",
+      "Bash(touch:*)",
+      "Bash(tar:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c \"count=$(git status --porcelain 2>/dev/null | wc -l); if [ $count -gt 0 ]; then echo \\\"⚠️ $count uncommitted file(s). Consider committing.\\\"; fi\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c \"echo 'Self-check before stopping: Is the task actually complete? Did you verify your changes work? Any loose ends?'\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c \"echo 'Reminder: Context Check required. Did you cite an existing pattern? Have you read MEMORY.md this session? (Existing patterns / Modules / Memory / Upstream-downstream / Unsure)'\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c \"ts=$(date '+%Y-%m-%d %H:%M:%S'); proj=$(basename \\\"$(pwd)\\\"); echo \\\"$ts | $proj | compact triggered\\\" >> ~/.claude/.compact-log; { echo \\\"# Pre-Compact Checkpoint ($ts)\\\"; echo \\\"## Working Directory\\\"; pwd; echo \\\"## Git Status\\\"; git status --porcelain 2>/dev/null | head -20; echo \\\"## Recent Commits\\\"; git log --oneline -5 2>/dev/null; } > ~/.claude/.compact-marker; echo '⚠️ Context is about to be compacted. If you have not written a session note, this is your last chance. Run /session now or at least record the current task state.'\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "language": "Traditional Chinese"
+}

@@ -1,0 +1,14 @@
+{
+  "keybindings": [
+    {
+      "contexts": ["app"],
+      "key": "Ctrl+K Ctrl+M",
+      "command": "selectModel"
+    },
+    {
+      "contexts": ["app"],
+      "key": "Ctrl+K Ctrl+P",
+      "command": "enterPlanMode"
+    }
+  ]
+}
