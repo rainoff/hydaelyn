@@ -1,6 +1,6 @@
 [English](README.md) | [繁體中文](README.zh-TW.md)
 
-# claude-code-playbook
+# hydaelyn
 
 一份個人 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 設定：rules、agents、skills、hooks，加上一套三層記憶。對應到 `~/.claude`，clone 過去調整幾項設定（權限、推播 hook）就能跑。
 
@@ -105,7 +105,7 @@ paths:
 ## 怎麼開始
 
 ```bash
-git clone https://github.com/rainoff/claude-code-playbook.git ~/.claude
+git clone https://github.com/rainoff/hydaelyn.git ~/.claude
 ```
 
 不要整包套完。看下面的分級，挑現階段需要的。JIRA、Figma 這些不用的 rule 直接刪，不會影響其他部分。

@@ -1,6 +1,6 @@
 [English](README.md) | [繁體中文](README.zh-TW.md)
 
-# claude-code-playbook
+# hydaelyn
 
 A personal [Claude Code](https://docs.anthropic.com/en/docs/claude-code) setup: rules, agents, skills, hooks, and a three-tier memory system. Maps to `~/.claude`. Clone it, adjust a few personal settings (permissions, notification hooks), and it runs.
 
@@ -105,7 +105,7 @@ Optional. The playbook works at L1 without any of these.
 ## Getting Started
 
 ```bash
-git clone https://github.com/rainoff/claude-code-playbook.git ~/.claude
+git clone https://github.com/rainoff/hydaelyn.git ~/.claude
 ```
 
 Don't enable everything at once. See the levels below and pick what's useful now. Unused rules (JIRA, Figma) can be deleted without affecting the rest.
